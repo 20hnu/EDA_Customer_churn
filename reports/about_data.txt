@@ -1,0 +1,52 @@
+The dataset contains data of 7043 users with their details and final churn status.
+
+Initial shape of dataset = (7043, 21)
+Number of dubplicate rows = 0
+Number of null values = 0
+
+Columns are:
+   * customerID           object
+   * gender               object
+   * SeniorCitizen         int64
+   * Partner              object
+   * Dependents           object
+   * tenure                int64
+   * PhoneService         object
+   * MultipleLines        object
+   * InternetService      object
+   * OnlineSecurity       object
+   * OnlineBackup         object
+   * DeviceProtection     object
+   * TechSupport          object
+   * StreamingTV          object
+   * StreamingMovies      object
+   * Contract             object
+   * PaperlessBilling     object
+   * PaymentMethod        object
+   * MonthlyCharges      float64
+   * TotalCharges         object
+   * Churn                object
+
+Dependent Column: Churn 
+                        No     5174
+                        Yes    1869
+
+
+# Cleaning dataset
+
+All columns seem fine but 'TotalCharges' column contains some null values
+and dtype as 'Object'.
+So the column is changes in 'float' and null values are imputed by using this formula:
+TotalCharges = MonthlyCharges * tenure
+
+* InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, StreamingTV, StreamingMovies, TechSupport have same number of rows associated to same type of value.
+* Only one column can be utilized while preparing data for modeling.
+* Also they will give similar type of analysis.
+
+The value counts of those columns are exactly same for each column, which is given below:
+            No                     2785
+            Yes                    2732
+            No internet service    1526
+
+
+
